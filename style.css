@@ -1,0 +1,213 @@
+@font-face { font-family: 'Nohemi'; src: url('assets/fonts/Nohemi-Light.ttf'); font-weight: 300; }
+@font-face { font-family: 'Nohemi'; src: url('assets/fonts/Nohemi-Regular.ttf'); font-weight: 400; }
+@font-face { font-family: 'Nohemi'; src: url('assets/fonts/Nohemi-Medium.ttf'); font-weight: 500; }
+@font-face { font-family: 'Nohemi'; src: url('assets/fonts/Nohemi-SemiBold.ttf'); font-weight: 600; }
+@font-face { font-family: 'Nohemi'; src: url('assets/fonts/Nohemi-Bold.ttf'); font-weight: 700; }
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --magenta: #AD3767;
+  --green: #204243;
+  --beige: #FEEACF;
+  --beige2: #EBD4B4;
+  --magenta-light: #E997AE;
+}
+
+html, body {
+  height: 100%;
+  font-family: 'Nohemi', sans-serif;
+  background: var(--beige);
+  color: var(--green);
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Header */
+header {
+  background: white;
+  padding: 20px 40px;
+  border-bottom: 1px solid var(--beige2);
+}
+
+.logo {
+  height: 36px;
+  display: block;
+}
+
+/* Main */
+main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  max-width: 760px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 48px 24px 24px;
+}
+
+/* Hero */
+.hero {
+  margin-bottom: 40px;
+}
+
+.hero h1 {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--magenta);
+  line-height: 1.2;
+  margin-bottom: 12px;
+}
+
+.hero p {
+  font-size: 1.1rem;
+  font-weight: 300;
+  color: var(--green);
+  opacity: 0.85;
+}
+
+/* Chat */
+.chat-container {
+  background: white;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 2px 24px rgba(32, 66, 67, 0.08);
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 400px;
+}
+
+.messages {
+  flex: 1;
+  padding: 28px 28px 16px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.message {
+  display: flex;
+  gap: 12px;
+  align-items: flex-end;
+}
+
+.message.user {
+  flex-direction: row-reverse;
+}
+
+.bubble {
+  max-width: 78%;
+  padding: 14px 18px;
+  border-radius: 18px;
+  font-size: 0.97rem;
+  line-height: 1.6;
+  font-weight: 400;
+}
+
+.message.assistant .bubble {
+  background: var(--beige);
+  color: var(--green);
+  border-bottom-left-radius: 4px;
+}
+
+.message.user .bubble {
+  background: var(--magenta);
+  color: white;
+  border-bottom-right-radius: 4px;
+}
+
+.typing .bubble {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 18px 20px;
+}
+
+.typing-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--magenta-light);
+  animation: bounce 1.2s infinite;
+}
+.typing-dot:nth-child(2) { animation-delay: 0.2s; }
+.typing-dot:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes bounce {
+  0%, 60%, 100% { transform: translateY(0); }
+  30% { transform: translateY(-6px); }
+}
+
+/* Input */
+.input-area {
+  display: flex;
+  align-items: flex-end;
+  gap: 12px;
+  padding: 16px 20px;
+  border-top: 1px solid var(--beige2);
+  background: white;
+}
+
+textarea {
+  flex: 1;
+  font-family: 'Nohemi', sans-serif;
+  font-size: 0.97rem;
+  font-weight: 400;
+  color: var(--green);
+  background: var(--beige);
+  border: none;
+  border-radius: 12px;
+  padding: 12px 16px;
+  resize: none;
+  outline: none;
+  max-height: 140px;
+  overflow-y: auto;
+  line-height: 1.5;
+}
+
+textarea::placeholder { color: var(--green); opacity: 0.45; }
+
+#send-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: var(--magenta);
+  color: white;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: background 0.15s;
+}
+
+#send-btn:hover { background: #963060; }
+#send-btn:disabled { background: var(--magenta-light); cursor: default; }
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 24px;
+  font-size: 0.82rem;
+  font-weight: 300;
+  color: var(--green);
+  opacity: 0.6;
+}
+
+footer a { color: var(--green); text-decoration: none; }
+footer a:hover { text-decoration: underline; }
+
+/* Responsive */
+@media (max-width: 600px) {
+  header { padding: 16px 20px; }
+  main { padding: 28px 16px 16px; }
+  .hero h1 { font-size: 1.7rem; }
+  .messages { padding: 20px 16px 12px; }
+}
