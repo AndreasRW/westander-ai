@@ -16,7 +16,7 @@
 
 html, body {
   height: 100%;
-  font-family: 'Nohemi', sans-serif;
+  font-family: Georgia, 'Times New Roman', serif;
   background: var(--beige);
   color: var(--green);
 }
@@ -29,14 +29,14 @@ body {
 
 /* Header */
 header {
-  background: white;
+  background: var(--magenta);
   padding: 20px 40px;
-  border-bottom: 1px solid var(--beige2);
 }
 
 .logo {
   height: 36px;
   display: block;
+  filter: brightness(0) saturate(100%) invert(94%) sepia(18%) saturate(400%) hue-rotate(330deg) brightness(105%);
 }
 
 /* Main */
@@ -56,6 +56,7 @@ main {
 }
 
 .hero h1 {
+  font-family: 'Nohemi', sans-serif;
   font-size: 2.2rem;
   font-weight: 700;
   color: var(--magenta);
@@ -64,10 +65,10 @@ main {
 }
 
 .hero p {
-  font-size: 1.1rem;
-  font-weight: 300;
+  font-size: 1.05rem;
   color: var(--green);
   opacity: 0.85;
+  line-height: 1.6;
 }
 
 /* Chat */
@@ -106,8 +107,7 @@ main {
   padding: 14px 18px;
   border-radius: 18px;
   font-size: 0.97rem;
-  line-height: 1.6;
-  font-weight: 400;
+  line-height: 1.7;
 }
 
 .message.assistant .bubble {
@@ -156,9 +156,8 @@ main {
 
 textarea {
   flex: 1;
-  font-family: 'Nohemi', sans-serif;
+  font-family: Georgia, 'Times New Roman', serif;
   font-size: 0.97rem;
-  font-weight: 400;
   color: var(--green);
   background: var(--beige);
   border: none;
@@ -196,7 +195,6 @@ footer {
   text-align: center;
   padding: 24px;
   font-size: 0.82rem;
-  font-weight: 300;
   color: var(--green);
   opacity: 0.6;
 }
